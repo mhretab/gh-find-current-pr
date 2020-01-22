@@ -2,14 +2,22 @@ const core = require('@actions/core');
 const { GitHub, context } = require('@actions/github');
 
 async function main() {
-    const prNumber = context.payload.pull_request.number;
-    const latestSha = context.payload.after;
-    const branch = context.payload.pull_request.head.ref;
+    let prNumber, currentBranch, latestSha;
+    if (context.payload.pull_request) {
+        prNumber = context.payload.pull_request.number;
+        latestSha = context.payload.after;
+        currentBranch = context.payload.pull_request.head.ref;
+    } else {
+        prNumber = 1;
+        latestSha = '';
+        currentBranch = '';
+    }
     
     console.log("prNumber", prNumber);
-    console.log("payload", context.payload);
     console.log("latestSha", latestSha);
     console.log("branch", branch);
+    
+    console.log("payload", context.payload);
     const token = core.getInput('github-token', { required: true });
     console.log(`Hello ${token}!`);
     const sha = core.getInput('sha');
