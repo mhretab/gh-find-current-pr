@@ -2,10 +2,10 @@ const core = require('@actions/core');
 const { GitHub, context } = require('@actions/github');
 
 async function main() {
-    console.log(`Hello ${token}!`);
     const token = core.getInput('github-token', { required: true });
+    console.log(`Hello ${token}!`);
     const sha = core.getInput('sha');
-
+    console.log(`Hello sha ${token}!`);
     const client = new GitHub(token, {});
     const result = await client.repos.listPullRequestsAssociatedWithCommit({
         owner: context.repo.owner,
