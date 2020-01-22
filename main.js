@@ -13,7 +13,7 @@ async function main() {
     });
 
     const pr = result.data.length > 0 && result.data[0];
-
+    console.log("Context", context.repo);
     core.setOutput('pr', pr && pr.number || '');
     core.setOutput('number', pr && pr.number || '');
     core.setOutput('title', pr && pr.title || '');
