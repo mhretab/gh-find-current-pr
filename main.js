@@ -3,7 +3,9 @@ const { GitHub, context } = require('@actions/github');
 
 async function main() {
     const prNumber = context.payload.pull_request.number;
+ 
     console.log("prNumber", prNumber);
+    console.log("payload", context.payload);
     const token = core.getInput('github-token', { required: true });
     console.log(`Hello ${token}!`);
     const sha = core.getInput('sha');
