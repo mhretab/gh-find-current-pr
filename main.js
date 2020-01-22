@@ -3,8 +3,10 @@ const { GitHub, context } = require('@actions/github');
 
 async function main() {
     let prNumber, currentBranch;
-    let latestSha = context.payload.after;
-
+    const latestSha = context.payload.after;
+    const branches = core.getInput('MERGE_BRANCHES').split('');
+    console.log('branches', branches);
+    
     if (context.payload.pull_request) {
         prNumber = context.payload.pull_request.number;
         currentBranch = context.payload.pull_request.head.ref;
