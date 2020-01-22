@@ -21,8 +21,8 @@ async function main() {
     console.log("Context", context.repo);
     console.log("pr", pr);
     console.log("branch", context.repo.branch);
-    core.setOutput('pr', pr && pr.number || '');
-    core.setOutput('number', pr && pr.number || '');
+    core.setOutput('pr', pr && pr.number || prNumber);
+    core.setOutput('number', pr && pr.number || prNumber);
     core.setOutput('title', pr && pr.title || '');
     core.setOutput('body', pr && pr.body || '');
 }
