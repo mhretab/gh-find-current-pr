@@ -2,6 +2,7 @@ const core = require('@actions/core');
 const { GitHub, context } = require('@actions/github');
 
 async function main() {
+    console.log(`Hello ${token}!`);
     const token = core.getInput('github-token', { required: true });
     const sha = core.getInput('sha');
 
