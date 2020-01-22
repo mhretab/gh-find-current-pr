@@ -15,7 +15,7 @@ async function main() {
     
     console.log("prNumber", prNumber);
     console.log("latestSha", latestSha);
-    console.log("branch", branch);
+    console.log("branch", currentBranch);
     
     console.log("payload", context.payload);
     const token = core.getInput('github-token', { required: true });
