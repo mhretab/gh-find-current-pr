@@ -6,7 +6,7 @@ async function main() {
     const latestSha = context.payload.after;
     const branches = core.getInput('MERGE_BRANCHES').split('');
     console.log('branches', branches);
-    
+    console.log('context.payload', context.payload);
     if (context.payload.pull_request) {
         prNumber = context.payload.pull_request.number;
         currentBranch = context.payload.pull_request.head.ref;
